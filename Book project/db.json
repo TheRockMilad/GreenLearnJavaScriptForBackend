@@ -1,0 +1,41 @@
+{
+    "users": [
+        {
+            "id": 1,
+            "name": "Amin Saeedi",
+            "username": "01213",
+            "crime": 0,
+            "role": "ADMIN"
+        },
+        {
+            "id": 2,
+            "name": "Qadir Yolme",
+            "username": "Q_yolme",
+            "crime": 0,
+            "role": "ADMIN"
+        },
+        {
+            "id": 3,
+            "name": "Ehsan Mmdi",
+            "username": "ehs",
+            "crime": 0,
+            "role": "USER"
+        }
+    ],
+    "books": [
+        {
+            "id": 1,
+            "title": "boostan",
+            "author": "sadi",
+            "Price": 40000,
+            "free": 1
+        },
+        {
+            "id": 3,
+            "title": "Harry potter and magic stone",
+            "author": "J.K.roling",
+            "Price": 250000,
+            "free": 1
+        }
+    ]
+}
