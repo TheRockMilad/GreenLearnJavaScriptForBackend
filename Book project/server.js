@@ -2,6 +2,7 @@ const http = require("http");
 const fs = require("fs");
 const url = require("url");
 const db = require("./db.json");
+const crypto = require("crypto");
 
 const server = http.createServer((req, res) => {
   if (req.method === "GET" && req.url === "/api/users") {
@@ -24,7 +25,7 @@ const server = http.createServer((req, res) => {
       res.write(JSON.stringify(data.books));
       res.end();
     });
-  } else if (req.method === "DELETE") {
+  } else if (req.method === "DELETE" && req.url.startsWith("/api/books")) {
     const parsedUrl = url.parse(req.url, true);
     const bookId = Number(parsedUrl.query.id);
 
@@ -52,6 +53,34 @@ const server = http.createServer((req, res) => {
         });
       }
     });
+  } else if (req.method === "POST" && req.url === "/api/books") {
+    let book = "";
+    //دیتا رو از بدنه میگیریم
+    req.on("data", (data) => {
+      book = book + data.toString();
+    });
+
+    // اگه با موفقیت به پایان برسه
+    req.on("end", () => {
+      console.log(JSON.parse(book));
+      // اطلاعات رو توی کتاب جدید وارد میکنیم
+      const newBook = {
+        id: crypto.randomUUID(),
+        ...JSON.parse(book),
+        free: 1,
+      };
+      db.books.push(newBook);
+      fs.writeFile("db.json", JSON.stringify(db), (err) => {
+        if (err) {
+          throw err;
+        }
+        res.writeHead(201, { "Content-Type": "application/json" });
+        res.write(JSON.stringify({ message: "New book created" }));
+        res.end();
+      });
+    });
+    res.end("New book Added");
+  } else if (req.method === "PUT" && req.url.startsWith("/api/books")) {
   }
 });
 
