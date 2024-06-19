@@ -4,6 +4,7 @@
             "id": 1,
             "name": "Amin Saeedi",
             "username": "01213",
+            "email": "test@gmail.com",
             "crime": 0,
             "role": "ADMIN"
         },
@@ -11,6 +12,7 @@
             "id": 2,
             "name": "Qadir Yolme",
             "username": "Q_yolme",
+            "email": "test@gmail.com",
             "crime": 0,
             "role": "ADMIN"
         },
@@ -18,8 +20,15 @@
             "id": 3,
             "name": "Ehsan Mmdi",
             "username": "ehs",
+            "email": "test@gmail.com",
             "crime": 0,
             "role": "USER"
+        },
+        {
+            "id": "364795bb-74d0-4142-a3c4-3ccd0a48273f",
+            "name": "Milad",
+            "email": "th@gmail.com",
+            "crime": 0
         }
     ],
     "books": [

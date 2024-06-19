@@ -91,7 +91,7 @@ const server = http.createServer((req, res) => {
     });
     req.on("end", () => {
       const reqBody = JSON.parse(bookNewInfo);
-      db.books.forEach(book => {
+      db.books.forEach((book) => {
         if (book.id === Number(bookId)) {
           book.title = reqBody.title;
           book.author = reqBody.author;
@@ -105,6 +105,31 @@ const server = http.createServer((req, res) => {
         res.writeHead(200, { "Content-Type": "application/json" });
         res.write(JSON.stringify({ message: "Book updated successfully" }));
         res.end();
+      });
+    });
+  } else if (req.method === "POST" && req.url === "/api/users") {
+    let userData = "";
+    req.on("data", (data) => {
+      userData = userData + data.toString();
+    });
+    req.on("end", () => {
+      const { name, user, email } = JSON.parse(userData);
+      const newUser = {
+        id: crypto.randomUUID(),
+        user,
+        name,
+        email,
+        crime: 0,
+      };
+      db.users.push(newUser);
+      fs.writeFile("db.json", JSON.stringify(db), (err) => {
+        if (err) {
+          throw err;
+        }
+        res.writeHead(201, { "Content-Type": "application/json" });
+        res.write(JSON.stringify({ message: "Usere registerd sccessfully" }));
+        res.end();
+        console.log(newUser);
       });
     });
   }
