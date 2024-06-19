@@ -28,7 +28,8 @@
             "id": "364795bb-74d0-4142-a3c4-3ccd0a48273f",
             "name": "Milad",
             "email": "th@gmail.com",
-            "crime": 0
+            "crime": 0,
+            "role":"USER"
         }
     ],
     "books": [
