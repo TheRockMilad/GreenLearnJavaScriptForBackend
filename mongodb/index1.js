@@ -18,9 +18,13 @@ const main = async () => {
   //     role: "ADMIN",
   //   });
 
+  //اضافه کردن چند داکیومنت به دیتابیس
+  //   const rentCollection = db.collection("rent");
+  //   rentCollection.insertMany([
+  //     { userID: 1, bookId: 1 },
+  //     { userID: 2, bookId: 2 },
+  //   ]);
 
   return "done";
 };
 main();
-
-console.log("object");
