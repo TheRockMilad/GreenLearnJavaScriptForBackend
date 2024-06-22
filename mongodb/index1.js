@@ -88,21 +88,30 @@ const main = async () => {
   //   console.log(mainUser.address.city);
 
   // ------------------- operators------------------------
-  const result = await userCollectiion
-    .find({
-      // role : {$ne : "USER"}      نباشه
-      // role : {$eq : "USER"}      باشه
-      // crime : {$lt : 12}         crime > 12
-      // crime : {$lte : 12}        crime >= 12
-      // crime : {$gt : 12}         crime < 12
-      // crime : {$gte : 12}        crime <= 12
-      // crime : {$in : [12,5]}     include
-      // crime : {$nin : [12,5]}    not in
-      //   $or: [{ crime: { $in: [22, 12] } }, { age: 18 }],  یا
-    })
-    .toArray();
+//   const result = await userCollectiion
+//     .find({
+//       // role : {$ne : "USER"}      نباشه
+//       // role : {$eq : "USER"}      باشه
+//       // crime : {$lt : 12}         crime > 12
+//       // crime : {$lte : 12}        crime >= 12
+//       // crime : {$gt : 12}         crime < 12
+//       // crime : {$gte : 12}        crime <= 12
+//       // crime : {$in : [12,5]}     include
+//       // crime : {$nin : [12,5]}    not in
+//       //   $or: [{ crime: { $in: [22, 12] } }, { age: 18 }],  یا
+//     })
+//     .toArray();
 
-  console.log(result);
+//   console.log(result);
+
+//-----------------Drop Collection and Database---------------------
+// پاک کردن کالکشن ها
+// const result = await userCollectiion.drop()
+// const result = await db.collection("books").drop()
+// const result = await db.dropCollection('rents')
+
+// پاک کردن کل دیتابیس
+// const result = await db.dropDatabase()
 
   return "done";
 };
