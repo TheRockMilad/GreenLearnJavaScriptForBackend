@@ -118,17 +118,34 @@ const main = async () => {
   // console.log(result);
 
   //------------------operator for update-------------------------
-  const result = await userCollectiion.updateOne(
-    { username: "Therock_milad" },
-    {
-      // $set : {email : "therock.milad@gmail.com"},
-      // $unset : {email : 1},
-      // $inc :{age :3},
-      // $min :{age :3},
-      // $max :{age :3},
-      // $mul :{age :3},
+  // const result = await userCollectiion.updateOne(
+  //   { username: "Therock_milad" },
+  //   {
+  //     // $set : {email : "therock.milad@gmail.com"},
+  //     // $unset : {email : 1},
+  //     // $inc :{age :3},
+  //     // $min :{age :3},
+  //     // $max :{age :3},
+  //     // $mul :{age :3},
+  //   }
+  // );
+  //---------------updateAt & createAt----------------
+
+  const result = await userCollectiion.updateMany({createdAt: { $exists: false }},{
+    $currentDate : {
+      createdAt  : true
     }
-  );
+    // $currentDate : {
+    //   updatedAt  : true
+    // }
+  }
+    
+      // $set : {
+      //   updatedAt : new Date()
+      // }
+    
+  )
+
   return "done";
 };
 main();
