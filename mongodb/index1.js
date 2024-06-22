@@ -25,24 +25,33 @@ const main = async () => {
   const db = dbconnection.db(dbName);
 
   const userCollectiion = db.collection("Users");
-//   userCollectiion.insertOne({
-//     name: "Hamid",
-//     username: "HHH",
-//     eamil: "Hamid@gmail.com",
-//     crime: 0,
-//     role: "ADMIN",
-//   });
+  //   userCollectiion.insertOne({
+  //     name: "Hamid",
+  //     username: "HHH",
+  //     eamil: "Hamid@gmail.com",
+  //     crime: 0,
+  //     role: "ADMIN",
+  //   });
 
-//سرچ اونایی که جریمه 0 دارن
-// const noCrimeUsers = await userCollectiion.find({crime : 0}).toArray()
-// console.log(noCrimeUsers);
+  //سرچ اونایی که جریمه 0 دارن
+  // const noCrimeUsers = await userCollectiion.find({crime : 0}).toArray()
+  // console.log(noCrimeUsers);
 
-// فیلتر با نام
-// const User = await userCollectiion.findOne({name : "Milad"})
+  // فیلتر با نام
+  // const User = await userCollectiion.findOne({name : "Milad"})
 
-//فیلتر با آیدی
-// const User = await userCollectiion.findOne({_id : new ObjectId("66768087b76dbbdcd2dbf583")})
-// console.log(User);
+  //فیلتر با آیدی
+  // const User = await userCollectiion.findOne({_id : new ObjectId("66768087b76dbbdcd2dbf583")})
+  // console.log(User);
+
+  // deleteOne || deleteMany || findOneAndDelete
+  //   const deleteRasult = await userCollectiion.deleteOne({
+  //     _id: new ObjectId("66766cd4d40f674f5612b2f1"),
+  //   });
+  //   console.log(deleteRasult);
+
+  // findOneAndDelete
+  // این متد ، هرچیزی رو که پاک میکنه تو خروجی ذخیره میکنه
 
   return "done";
 };
