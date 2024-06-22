@@ -53,6 +53,16 @@ const main = async () => {
   // findOneAndDelete
   // این متد ، هرچیزی رو که پاک میکنه تو خروجی ذخیره میکنه
 
+  //Update
+  const updateUser = await userCollectiion.updateOne(
+    { name: "Milad" },
+    {
+      $set: {
+        crime: 120000,
+      },
+    }
+  );
+
   return "done";
 };
 main();
