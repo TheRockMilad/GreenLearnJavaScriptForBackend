@@ -113,6 +113,11 @@ const main = async () => {
 // پاک کردن کل دیتابیس
 // const result = await db.dropDatabase()
 
+
+//-------------exists-------------------
+const result = await userCollectiion.find({address:{$exists:true}}).toArray()
+console.log(result);
+
   return "done";
 };
 main();
