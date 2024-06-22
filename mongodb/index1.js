@@ -131,20 +131,35 @@ const main = async () => {
   // );
   //---------------updateAt & createAt----------------
 
-  const result = await userCollectiion.updateMany({createdAt: { $exists: false }},{
-    $currentDate : {
-      createdAt  : true
-    }
-    // $currentDate : {
-    //   updatedAt  : true
-    // }
-  }
-    
-      // $set : {
-      //   updatedAt : new Date()
-      // }
-    
-  )
+  // const result = await userCollectiion.updateMany({createdAt: { $exists: false }},{
+  //   $currentDate : {
+  //     createdAt  : true
+  // }
+  // $currentDate : {
+  //   updatedAt  : true
+  // }
+  // }
+  // )
+
+  // ------------------کار با آرایه ها در دیتابیس---------------------------
+  // const result = await userCollectiion.find({ tags: "seo" }).toArray();
+  // const result = await userCollectiion.find({ tags: ["seo"] }).toArray();
+  // const result = await userCollectiion.find({ tags: { $all: ["seo", "front"] } }).toArray();
+  // const result = await userCollectiion.find({ tags: {$size : 4 }}).toArray();
+
+  // const result = await userCollectiion.updateOne(
+  //   { _id: new ObjectId("66768087b76dbbdcd2dbf583") },
+  //   {
+  //     // $push: { tags: "frontend" },
+  //     // $addToSet: { tags: "frontend" },
+  //     // $pop: { tags: 1 },
+  //     // $pull : {tags : "seo"}
+
+  //   }
+  // );
+  // console.log(result);
+
+  // ----------------------------------------------------
 
   return "done";
 };
