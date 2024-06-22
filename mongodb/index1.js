@@ -1,4 +1,4 @@
-const { MongoClient } = require("mongodb");
+const { MongoClient, ObjectId } = require("mongodb");
 const http = require("http");
 //.env اینجور این فایل کانفیگ میشه
 require("dotenv").config();
@@ -24,7 +24,7 @@ const main = async () => {
   console.log("Connected to dbConnection succesfully");
   const db = dbconnection.db(dbName);
 
-//   const userCollectiion = db.collection("Users");
+  const userCollectiion = db.collection("Users");
 //   userCollectiion.insertOne({
 //     name: "Hamid",
 //     username: "HHH",
@@ -32,6 +32,17 @@ const main = async () => {
 //     crime: 0,
 //     role: "ADMIN",
 //   });
+
+//سرچ اونایی که جریمه 0 دارن
+// const noCrimeUsers = await userCollectiion.find({crime : 0}).toArray()
+// console.log(noCrimeUsers);
+
+// فیلتر با نام
+// const User = await userCollectiion.findOne({name : "Milad"})
+
+//فیلتر با آیدی
+// const User = await userCollectiion.findOne({_id : new ObjectId("66768087b76dbbdcd2dbf583")})
+// console.log(User);
 
   return "done";
 };
