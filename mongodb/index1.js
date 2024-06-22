@@ -82,10 +82,27 @@ const main = async () => {
 
   //   console.log(replaceUser);
 
-  const mainUser = await userCollectiion.findOne({
-    _id: new ObjectId("66766cd4d40f674f5612b2f2"),
-  });
-  console.log(mainUser.address.city);
+  //   const mainUser = await userCollectiion.findOne({
+  //     _id: new ObjectId("66766cd4d40f674f5612b2f2"),
+  //   });
+  //   console.log(mainUser.address.city);
+
+  // ------------------- operators------------------------
+  const result = await userCollectiion
+    .find({
+      // role : {$ne : "USER"}      نباشه
+      // role : {$eq : "USER"}      باشه
+      // crime : {$lt : 12}         crime > 12
+      // crime : {$lte : 12}        crime >= 12
+      // crime : {$gt : 12}         crime < 12
+      // crime : {$gte : 12}        crime <= 12
+      // crime : {$in : [12,5]}     include
+      // crime : {$nin : [12,5]}    not in
+      //   $or: [{ crime: { $in: [22, 12] } }, { age: 18 }],  یا
+    })
+    .toArray();
+
+  console.log(result);
 
   return "done";
 };
