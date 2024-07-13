@@ -19,17 +19,17 @@ console.log("Test log after write users files");
 
 //Async added to Json file -----------------------------------------------
 
-fs.readFile("data.json", (error, data) => {
+fs.readFile("data.json", (error, data) => {  //data == json
   if (error) {
-    throw error;
+    {throw error}
   }
-  const db = JSON.parse(data);
-  const newBook = {
-    id: db.books.length + 1,
-    title: "Python Book",
+  const db = JSON.parse(data);  // data => db => obj
+  const newBook = { 
+    id: db.books.length + 1,  // id + 1 
+    title: "P Book",
   };
-  db.books.push(newBook);
-  fs.writeFile("data.json", JSON.stringify(db), (err) => {
+  db.books.push(newBook); // newBook => added to db
+  fs.writeFile("data.json", JSON.stringify(db), (err) => {  //db = obj => json
     if (err) {
       throw err;
     }
